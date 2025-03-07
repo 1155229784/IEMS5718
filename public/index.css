@@ -1,0 +1,41 @@
+.product_img  {
+    width: 200px; 
+    height: 200px;
+}
+
+/* #cartbutton {
+    
+} */
+
+.toppanel {
+  margin-bottom: 10px;
+}
+
+
+.category_bar{
+  display: flex;
+
+}
+
+
+.category_box {
+  margin-left: 10px;
+}
+
+
+
+
+.mainbox {
+  border: 5px solid rgb(96 139 168);
+}
+
+.mainbox > h3{
+  margin: 5px;
+}
+
+
+
+
+
+
+

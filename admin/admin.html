@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<head>
+
+    <title>Document</title>
+</head>
+
+<template id="category_template">
+<option class="category_row">
+</option>
+</template>
+<body>
+    <form action="/api/item" method="post" enctype="multipart/form-data">
+        <h2>Test admin page</h2>
+        <h3>Insert a product</h3>
+        <div id="category_list">
+        <select name="category_select" id="category_select" class="category_select">
+        
+        <option value="">Choose a category</option>
+
+        </select> 
+        </div><br>
+        product name: <br>
+        <input type="text" name="productname"><br>
+        price:<br>
+        <input type="text" name="price"><br>
+        description:<br>
+        <input type="text" name="description"><br>
+        <input type="file" name="imageToUpload" id="fileToUpload"><br>
+        <input type="submit" name="submit" value="insert a product">
+    </form>
+
+
+
+    <form action="/api/item/delete" method="post">
+        <h3>delete a product</h3>
+        type a cproduct id: <br>
+        <input type="text" name="product_id"><br>
+        <input type="submit" name="submit" value="delete a product">
+        <!-- username:<br>
+        <input type="text" name="username"><br>
+        password:<br>
+        <input type="password" name="password"><br>
+        <input type="submit" name="submit" value="register"> -->
+    </form>
+
+
+    
+    <form action="/api/category" method="post">
+        <h3>add a category</h3>
+        type a category name: <br>
+        <input type="text" name="category_name"><br>
+        <input type="submit" name="submit" value="add a category">
+    </form>
+
+
+
+    <form action="/api/category/delete" method="post">
+        <h3>delete a category</h3>
+        <div id="category_list">
+        <select name="category_select" id="" class="category_select">
+        
+        <option value="">Choose a category</option>
+
+        
+        </select></div><br>
+        <input type="submit" name="submit" value="delete a category">
+    </form>
+    <script src="admin.js"></script>
+</body>
+
+
+
+<!-- 
+<?php
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+        $productname = filter_input(INPUT_POST, "productname", FILTER_SANITIZE_SPECIAL_CHARS);
+        $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS);
+        
+        $file = $_FILES['imageToUpload']['name'];
+        
+
+
+        if(empty($productname)){
+            echo"Please enter a product name "  ;
+        }
+        elseif(empty($description)){
+            echo"Please enter a description";
+        }
+        elseif(empty($file)) {
+            echo"Please upload an image";
+        }
+        else{
+
+            $target_dir = "uploads/";
+            $target_file = $target_dir . basename($file);
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            // Check if image file is a actual image or fake image
+            $check = getimagesize($_FILES["imageToUpload"]["tmp_name"]);
+            if($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+            // Check file size
+            if ($_FILES["imageToUpload"]["size"] > 10000000) {
+                echo "Sorry, your file is too large.";
+                $uploadOk = 0;
+            }
+
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "gif" ) {
+                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $uploadOk = 0;
+            }
+            // $sql = "INSERT INTO users (user, password)
+            //         VALUES ('$username', '$hash')";
+            
+            // try{
+            //     mysqli_query($conn, $sql);
+            //     echo"You are now registered!";
+            // }
+            // catch(mysqli_sql_exception){
+            //     echo"That username is taken";
+            // }
+            if ($uploadOk) {
+                if (move_uploaded_file($_FILES["imageToUpload"]["tmp_name"], $target_file)) {
+                    echo "The file ". htmlspecialchars( basename( $_FILES["imageToUpload"]["name"])). " has been uploaded.";
+                  } else {
+                    echo "Sorry, there was an error uploading your file.";
+                  }
+                // echo "Product added to DB";
+                
+            }
+            else {
+                echo "Product upload failed";
+            }
+        }
+        
+
+    }
+
+    mysqli_close($conn);
+?> -->

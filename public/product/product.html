@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<head>
+</head>
+<link rel="stylesheet" href="product.css">
+<body>
+    <header>
+    <h1 id="product_item"></h1>
+    </header>
+    <div id="nav_bar">
+    <nav>
+    <ul>
+        <li>
+        <a href="/index.html">
+        <span>Main</span></a>
+        </li>
+        <span>/</span>
+        <li>
+        <a id="category_link">
+        <span id="category_name">electronics</span></a>
+        </li>
+        <span>/</span>
+        <li>
+        <a id="product_link">
+        <span id="product_name">product1</span></a>
+         </li>
+    </ul>
+    </nav>
+    <div class="cartpanel">
+
+    </div>
+    <template id="product_template">
+        <!-- <div id="product_box"> -->
+            <div class="leftcol">
+            <img class="product_img" src="/dummy-image-square.jpg">  
+            <p><button  class="add_cart_button" data-pid="">Add to Cart</button></p>  
+            </div>
+            <div class="rightcol">
+            <h1 class="product_name">product name</h1>
+            <p class="product_price">price</p>
+            <p class="product_description">product description</p>
+            </div>
+        <!-- </div> -->
+    </template>
+    <div class="product_box" id="product_box"   data-item-id="">
+
+
+        <!-- <div id="leftcol">
+            <img class="product_img" src="/dummy-image-square.jpg" alt="/dummy-image-square.jpg">  
+            <p><button>Add to Cart</button></p>  
+            </div>
+            <div id="product_details">
+            <h1>product name</h1>
+            <p>price</p>
+            <p>product description</p>
+            </div> -->
+    </div>
+    <script src="product.js"></script>
+    <script src="/shoppingcart/getshoppingcart.js"></script>
+</body>
+
