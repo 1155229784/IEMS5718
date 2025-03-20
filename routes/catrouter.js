@@ -1,5 +1,5 @@
 import express from 'express';
-
+import {isAdmin} from '../auth/authMiddleware.js';
 
 import {
     getCats,
@@ -22,8 +22,8 @@ router.get('/catid/:catid', getCatById);
 
 router.get('/:categoryName/item', getCatItem);
 
-router.post('/', createCat);
+router.post('/', isAdmin, createCat);
 
-router.post('/delete/', deleteCat);
+router.post('/delete/', isAdmin, deleteCat);
 
 export default router;

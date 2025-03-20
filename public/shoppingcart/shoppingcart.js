@@ -59,7 +59,7 @@ class ShoppingCart {
     }
 
     async addInitEventListener() {
-        console.log("added initEvent")
+        // console.log("added initEvent")
         const cartButton = document.getElementById('cartbutton');
         const dropdownContent = document.querySelector('.dropdown-content');
         const add_cart_buttons = document.getElementsByClassName('add_cart_button');
@@ -114,12 +114,12 @@ class ShoppingCart {
         }
         await this.saveToLocalStorage();
         await this.renderProducts();
-        console.log("Item added")
+        // console.log("Item added")
     }
 
     // Remove item from cart
     async removeItem(product) {
-        console.log("Item removed")
+        // console.log("Item removed")
         const existingItem = this.items.find(item => item.pid === product.pid);
         
         if (existingItem.quantity > 1) {
@@ -166,7 +166,7 @@ class ShoppingCart {
     // Save cart to localStorage
     async saveToLocalStorage() {
         localStorage.setItem('shoppingCart', JSON.stringify(this.items));
-        console.log("saved")
+        // console.log("saved")
     }
 
     async renderProducts() {
@@ -245,13 +245,13 @@ class ShoppingCart {
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log("DOM Content Loaded");
+    // console.log("DOM Content Loaded");
     const cart = new ShoppingCart();
 });
 
 if (document.readyState === 'loading') {
-    console.log("document loaading");
+    // console.log("document loaading");
 } else {
-    console.log("DOM Content Loaded");
+    // console.log("DOM Content Loaded");
     const cart = new ShoppingCart();
 }

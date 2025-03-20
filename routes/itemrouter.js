@@ -2,6 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import sharp from 'sharp';
 import path from 'path';
+import {isAdmin} from '../auth/authMiddleware.js';
 
 import {
   getItem,
@@ -56,7 +57,7 @@ router.get('/:id', getItem);
 //Post requests
 
 // router.post('/', createItem);
-router.post('/', async (req, res, next) => {
+router.post('/', isAdmin, async (req, res, next) => {
   upload(req, res,  async (err) => {
       // Construct the absolute path to productimg folder
       const product_image_folder = path.join(process.cwd(), 'productimg');
@@ -96,7 +97,7 @@ router.post('/', async (req, res, next) => {
 
 
 //Delete requests
-router.post('/delete', deleteItem);
+router.post('/delete', isAdmin, deleteItem);
 
 
 export default router;

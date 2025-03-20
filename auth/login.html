@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <h2>Login</h2>
+    <div id="login_status_bar">
+        <h3 id="login_status_display">login status</h3>
+       <br>
+    </div>
+    <form method="POST" action="/login">
+        Enter Username:<br>
+        <input type="text" name="uname" >
+    <br>Enter Password:<br><input type="password" name="pw">
+    <br><br>
+    <input type="submit" value="Submit"></form>
+    <br>
+    <form action="/logout">
+    <input type="submit" value="logout"></form>
+    <form action="/"><br>
+    <input type="submit" value="homepage"></form>
+</head>
+<body>
+    <script src="login.js"></script>
+</body>

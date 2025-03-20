@@ -19,12 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryTemplate = document.getElementById('categoryTemplate');
     const category_bar = document.getElementsByClassName('category_bar')[0];
     // console.log(category_bar);
+    
+    const login_status_display = document.getElementById('login_status_display');
+    async function fetchLoginStatus() {
+      try {
+        const response = await fetch('http://localhost:3000/login_stat');
+        const status = await response.json();
 
+        login_status_display.textContent = `current login as: ${status}`;
+      } catch (err) {
+        console.error('Login status error error:', error);
+      }
+    }
     async function fetchCategories() {
       try {
         const response = await fetch('http://localhost:3000/api/category');
         const categories = await response.json();
-        // console.log(categories);
+        console.log(categories);
         categories.forEach((category, index) => {
           // Clone the template
           const categoryElement = categoryTemplate.content.cloneNode(true);
@@ -48,7 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     }
+    fetchLoginStatus();
     fetchCategories();
+    
 });
 
     // pool.getConnection(function(err, connection) {
